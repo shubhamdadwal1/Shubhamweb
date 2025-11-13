@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubham Dadwal | Cloud Administrator & DevOps Enthusiast</title>
+    <!-- Using Rajdhani for a technical, modern look and Space Mono for code-like headers -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        // Use a dynamic placeholder for the image URL since I cannot access the actual path at runtime
+        const PHOTO_URL = 'shubhhh.jpg';
+        const CONTACT_EMAIL = 'dadwalshubham096@gmail.com';
+        // Check if the image path is available from the runtime environment.
+        window.addEventListener('error', function(e) {
+            if (e.target.tagName === 'IMG' && e.target.classList.contains('hero-photo')) {
+                console.warn("Could not load the provided image path. Using a standard placeholder.");
+                e.target.src = 'https://placehold.co/400x550/080A1A/00C2FF?text=SHUBHAM';
+                e.target.onerror = null;
+            }
+        }, true);
+    </script>
+    <style>
+        /* CSS Variables for Theme and Color Management */
+        :root {
+            --color-dark: #080A1A; /* Deep Space Black */
+            --color-light: #E0E6FF; /* Off-White Text */
+            --color-accent: #00C2FF; /* Primary AI-Glow Cyan */
+            --color-accent-dark: #0080AA;
+            --color-border: #00C2FF20; /* Subtle border */
+            --color-glass: #E0E6FF0A; /* Glassmorphism background */
+            --padding-section: 120px;
+            --font-main: 'Rajdhani', sans-serif;
+            --font-code: 'Space Mono', monospace;
+            --grid-max-width: 1200px;
+        }
+
+        /* --- Base & Reset --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-light);
+            background-color: var(--color-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            text-rendering: optimizeLegibility;
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--color-light);
+            text-shadow: 0 0 5px var(--color-accent);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-code);
+            font-weight: 700;
+        }
+
+        /* Utility for the 12-Column Grid System */
+        .grid-container {
+            max-width: var(--grid-max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+        }
+
+        section {
+            padding: var(--padding-section) 0;
+            position: relative;
+            z-index: 2; /* Ensure content is above the background animation */
+        }
+
+        /* --- Section Header Styling --- */
+        .section-header {
+            grid-column: 1 / -1;
+            margin-bottom: 60px;
+            display: flex;
+            align-items: center;
+            font-family: var(--font-code);
+            font-size: 1.2rem;
+            color: var(--color-accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px var(--color-accent-dark);
+        }
+
+        .section-header::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--color-accent) 0%, transparent 100%);
+            margin-left: 20px;
+            opacity: 0.3;
+        }
+
+        /* --- Glowing CTA Button --- */
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 2px solid var(--color-accent);
+            border-radius: 50px;
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--color-accent);
+            background: transparent;
+            box-shadow: 0 0 5px var(--color-accent-dark), 0 0 15px var(--color-accent-dark) inset;
+            transition: all 0.4s ease-in-out;
+            cursor: pointer;
+            animation: pulse-glow 2s infinite alternate;
+        }
+
+        .cta-button:hover {
+            background-color: var(--color-accent);
+            color: var(--color-dark);
+            box-shadow: 0 0 10px var(--color-accent), 0 0 30px var(--color-accent);
+            transform: translateY(-2px);
+            animation: none;
+        }
+
+        @keyframes pulse-glow {
+            from { box-shadow: 0 0 5px var(--color-accent), 0 0 10px var(--color-accent) inset; }
+            to { box-shadow: 0 0 10px var(--color-accent), 0 0 20px var(--color-accent) inset; }
+        }
+
+        /* --- Section 1: Hero --- */
+        #hero {
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            padding-top: 0;
+            padding-bottom: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated Background (Plexus/Neural Network Effect) */
+        #hero-bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, #151d3b30, var(--color-dark) 70%);
+            /* Using a static graphic placeholder for the dynamic animation requirement */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur in='SourceGraphic' stdDeviation='1.5' result='blur'%3E%3C/feGaussianBlur%3E%3CfeMerge%3E%3CfeMergeNode in='blur'%3E%3C/feMergeNode%3E%3CfeMergeNode in='SourceGraphic'%3E%3C/feMergeNode%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M0 0h1200v800H0z' fill='%23080A1A'/%3E%3Cg filter='url(%23glow)'%3E%3Ccircle cx='300' cy='150' r='3' fill='%2300C2FF' opacity='0.5'%3E%3Canimate attributeName='cx' values='300;900;300' dur='15s' repeatCount='indefinite'/%3E%3Canimate attributeName='cy' values='150;650;150' dur='20s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='900' cy='650' r='3' fill='%2300C2FF' opacity='0.5'%3E%3Canimate attributeName='cx' values='900;300;900' dur='15s' repeatCount='indefinite'/%3E%3Canimate attributeName='cy' values='650;150;650' dur='20s' repeatCount='indefinite'/%3E%3C/circle%3E%3Cline x1='300' y1='150' x2='900' y2='650' stroke='%2300C2FF' stroke-width='0.5' opacity='0.1'%3E%3C/line%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: cover;
+            opacity: 0.7;
+            z-index: 1;
+        }
+
+        .hero-content {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            z-index: 2;
+        }
+
+        .hero-text {
+            grid-column: 1 / 7;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .intro-line {
+            font-family: var(--font-code);
+            font-size: 1.2rem;
+            color: var(--color-accent);
+            letter-spacing: 3px;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            line-height: 1;
+            margin-bottom: 10px;
+            color: var(--color-light);
+            text-shadow: 0 0 15px var(--color-accent-dark);
+        }
+
+        .animated-subheading {
+            min-height: 1.5em; /* Prevent layout shift */
+            font-family: var(--font-code);
+            font-size: clamp(1rem, 4vw, 1.75rem);
+            color: var(--color-accent);
+            margin-bottom: 30px;
+        }
+
+        .cursor {
+            display: inline-block;
+            margin-left: 5px;
+            animation: blink 0.7s infinite;
+            font-weight: 700;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hero-image-container {
+            grid-column: 7 / 13;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .hero-photo {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 0 25px var(--color-accent-dark), 0 0 50px var(--color-accent-dark) inset;
+            border: 2px solid var(--color-accent-dark);
+            opacity: 0.9;
+            transition: box-shadow 0.5s ease;
+        }
+
+        .hero-photo:hover {
+             box-shadow: 0 0 35px var(--color-accent), 0 0 60px var(--color-accent) inset;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .glowing-chevron {
+            width: 30px;
+            height: 30px;
+            fill: var(--color-accent);
+            filter: drop-shadow(0 0 5px var(--color-accent));
+        }
+
+        /* --- Section 2: Profile & Expertise --- */
+        #profile-skills {
+            background: linear-gradient(var(--color-dark), #0b0e27);
+            background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='smallGrid' width='10' height='10' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 10 0 L 0 0 0 10' fill='none' stroke='%2300C2FF' stroke-width='0.1' /%3E%3C/pattern%3E%3Cpattern id='grid' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Crect width='100' height='100' fill='url(%23smallGrid)' /%3E%3Cpath d='M 100 0 L 0 0 0 100' fill='none' stroke='%2300C2FF' stroke-width='0.2' /%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)' /%3E%3C/svg%3E");
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .profile-text {
+            grid-column: 1 / 6;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            opacity: 0; /* Hidden initially for fade-in animation */
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .profile-text.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skills-grid {
+            grid-column: 7 / 13;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-card {
+            background: var(--color-glass);
+            border: 1px solid var(--color-border);
+            backdrop-filter: blur(8px);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            background: linear-gradient(45deg, var(--color-accent), transparent, var(--color-accent)) border-box;
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 20px var(--color-accent);
+        }
+
+        .skill-card:hover::before {
+            opacity: 1;
+        }
+
+        .skill-icon {
+            margin-bottom: 10px;
+            width: 40px;
+            height: 40px;
+            stroke: var(--color-accent);
+            stroke-width: 2;
+            fill: none;
+            filter: drop-shadow(0 0 5px var(--color-accent));
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .skill-name {
+            font-family: var(--font-code);
+            font-size: 1rem;
+            color: var(--color-light);
+            text-transform: uppercase;
+        }
+
+        /* --- Section 3: Experience (Timeline) --- */
+        #experience {
+            background-color: var(--color-dark);
+        }
+
+        .timeline-wrapper {
+            grid-column: 1 / -1;
+            position: relative;
+            padding: 40px 0;
+        }
+
+        /* The vertical glowing line */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--color-accent) 0%, var(--color-accent) var(--timeline-progress, 0%), transparent var(--timeline-progress, 0%), transparent 100%);
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px var(--color-accent-dark);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 80px;
+            opacity: 0;
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .timeline-item.in-view-left {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .timeline-item.in-view-right {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-item:nth-child(odd) {
+            transform: translateX(-50px);
+        }
+
+        .timeline-item:nth-child(even) {
+            transform: translateX(50px);
+        }
+
+
+        .timeline-content {
+            width: 45%;
+            padding: 30px;
+            border-radius: 10px;
+            background: var(--color-glass);
+            border: 1px solid var(--color-border);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s ease;
+        }
+
+        .timeline-content:hover {
+            box-shadow: 0 0 25px var(--color-accent-dark);
+            border-color: var(--color-accent);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 5%;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 5%;
+        }
+
+        /* The glowing dot on the line */
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 15px;
+            height: 15px;
+            background-color: var(--color-accent);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px var(--color-accent), 0 0 20px var(--color-accent);
+            z-index: 10;
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            color: var(--color-accent);
+            margin-bottom: 5px;
+        }
+
+        .company-dates {
+            font-size: 0.9rem;
+            color: var(--color-light);
+            opacity: 0.7;
+            margin-bottom: 15px;
+        }
+
+        .job-details li {
+            font-size: 1rem;
+            list-style: none;
+            position: relative;
+            margin-bottom: 8px;
+            padding-left: 20px;
+        }
+
+        .job-details li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+
+        /* --- Section 4: Achievements (Metrics) --- */
+        #achievements {
+            background-color: #0b0e27;
+        }
+
+        .achievements-grid {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .metric-card {
+            background: var(--color-glass);
+            border: 1px solid var(--color-border);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            box-shadow: 0 0 30px var(--color-accent-dark);
+            transform: translateY(-5px);
+        }
+
+        .metric-card h2 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: var(--color-accent);
+            text-shadow: 0 0 15px var(--color-accent);
+            margin-bottom: 10px;
+            font-family: var(--font-main);
+            font-weight: 900;
+        }
+
+        .metric-card p {
+            font-size: 1.1rem;
+            color: var(--color-light);
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+
+        /* --- Section 5: Education & Certifications --- */
+        #education-certs {
+            background-color: var(--color-dark);
+        }
+
+        .education-column {
+            grid-column: 1 / 7;
+        }
+
+        .certs-column {
+            grid-column: 7 / 13;
+        }
+
+        .section-subtitle {
+            font-family: var(--font-code);
+            font-size: 1.5rem;
+            color: var(--color-light);
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 10px;
+        }
+
+        .edu-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-left: 3px solid var(--color-accent);
+            background: rgba(0, 194, 255, 0.05);
+            border-radius: 0 5px 5px 0;
+        }
+
+        .edu-item h3 {
+            font-size: 1.25rem;
+            color: var(--color-accent);
+        }
+
+        .edu-item p {
+            font-size: 1rem;
+            color: var(--color-light);
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        .cert-list li {
+            list-style: none;
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background: var(--color-glass);
+            border-radius: 5px;
+            border: 1px solid var(--color-border);
+            font-family: var(--font-code);
+            display: flex;
+            align-items: center;
+        }
+
+        .cert-list li .cert-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            fill: var(--color-accent);
+            filter: drop-shadow(0 0 3px var(--color-accent));
+        }
+
+        /* --- Section 6: Contact & CTA --- */
+        #contact {
+            background: linear-gradient(#0b0e27, var(--color-dark));
+            text-align: center;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-content {
+            grid-column: 2 / 12;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-content h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--color-light);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .contact-content p {
+            font-size: 1.25rem;
+            color: var(--color-light);
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .contact-link-item {
+            display: block;
+            position: relative;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            stroke: var(--color-accent);
+            stroke-width: 2;
+            fill: none;
+            filter: drop-shadow(0 0 5px var(--color-accent));
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-link-item:hover .contact-icon {
+            filter: drop-shadow(0 0 10px var(--color-accent)) drop-shadow(0 0 20px var(--color-accent-dark));
+            transform: scale(1.1);
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 30px 20px;
+            text-align: center;
+            font-family: var(--font-code);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--color-border);
+            color: var(--color-light);
+            opacity: 0.5;
+        }
+
+        /* --- Mobile Responsiveness (Below 768px) --- */
+        @media (max-width: 768px) {
+            :root {
+                --padding-section: 80px;
+            }
+
+            .hero-content {
+                flex-direction: column-reverse; /* Image on top for mobile */
+                text-align: center;
+                gap: 20px;
+                padding-top: 100px; /* Space from top */
+            }
+
+            .hero-text, .hero-image-container {
+                grid-column: 1 / -1;
+            }
+
+            .hero-text {
+                align-items: center;
+            }
+
+            .hero-photo {
+                max-width: 300px;
+                height: 400px;
+            }
+
+            .profile-text, .skills-grid {
+                grid-column: 1 / -1;
+                margin-bottom: 40px;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                margin-bottom: 40px;
+                transform: translateX(0) !important; /* Override slide-in */
+            }
+
+            .timeline-item:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .timeline-content {
+                width: 100%;
+                margin: 0 !important;
+                padding: 20px;
+            }
+
+            .timeline-dot {
+                display: none; /* Hide dots on mobile to simplify layout */
+            }
+
+            .timeline-line {
+                left: 20px; /* Move line to the left edge */
+                transform: none;
+            }
+
+            .timeline-item {
+                border-left: 2px solid var(--color-accent);
+                padding-left: 25px;
+            }
+
+            .timeline-content {
+                border: 1px solid var(--color-border); /* Remove left border from card */
+                border-radius: 5px;
+            }
+
+            .education-column, .certs-column {
+                grid-column: 1 / -1;
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="hero-bg-animation"></div>
+
+    <!-- Section 1: The Hero Section (Full Screen & Immersive) -->
+    <section id="hero" class="full-screen grid-container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="intro-line">Hello, I'm</p>
+                <h1>SHUBHAM DADWAL</h1>
+                <div class="animated-subheading">
+                    <span id="typing-text"></span><span class="cursor">|</span>
+                </div>
+                <a href="#experience" class="cta-button">View My Journey</a>
+            </div>
+            <div class="hero-image-container">
+                <img id="hero-img" src="" alt="Shubham Dadwal, Cloud Administrator" class="hero-photo" onerror="this.src='https://placehold.co/400x550/080A1A/00C2FF?text=SHUBHAM'; this.onerror=null;">
+            </div>
+        </div>
+        <a href="#profile-skills" class="scroll-indicator">
+            <svg class="glowing-chevron" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </a>
+    </section>
+
+    <!-- Section 2: Profile & Expertise (Combined Section) -->
+    <section id="profile-skills" class="grid-container">
+        <h2 class="section-header">01. // PROFILE & EXPERTISE</h2>
+
+        <div class="profile-text">
+            <p>Dedicated Computer Science and Engineering student with a strong academic record and a keen interest in **cloud computing and infrastructure management**. Proficient in designing and developing scalable cloud-based services, with a demonstrated ability to excel in challenging technical environments.</p>
+            <br>
+            <p>My focus is on **DevOps automation**, leveraging tools like AWS and Python to build resilient and efficient back-end systems. I am currently pursuing a Bachelor of Technology degree and actively seeking opportunities to apply my skills in a professional cloud environment.</p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <svg class="skill-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zM12 14v4M12 6.5l5 2.5-5 2.5-5-2.5 5-2.5z"/></svg>
+                <span class="skill-name">AWS CLOUD</span>
+            </div>
+            <div class="skill-card">
+                <svg class="skill-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zM12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM8 12h8M12 8v8M16 12l-4 4-4-4"/></svg>
+                <span class="skill-name">DEVOPS</span>
+            </div>
+            <div class="skill-card">
+                <svg class="skill-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 13h18v8H3zM8 17h8M7 13v8M17 13v8M3 9h18M7 5h10M12 1v4"/></svg>
+                <span class="skill-name">PYTHON / JAVA</span>
+            </div>
+            <div class="skill-card">
+                <svg class="skill-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v18M3 12h18M7 7l10 10M7 17l10-10"/></svg>
+                <span class="skill-name">DATA & DB (SQL)</span>
+            </div>
+            <div class="skill-card">
+                <svg class="skill-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 12h16M4 16h16M4 8h16M11 20H5c-1.105 0-2-.895-2-2V6c0-1.105.895-2 2-2h14c1.105 0 2 .895 2 2v6"/></svg>
+                <span class="skill-name">JAVASCRIPT</span>
+            </div>
+            <div class="skill-card">
+                <svg class="skill-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 10h-4M6 10h4M4 14l3-3 3 3M12 14l3-3 3 3M12 6h4M8 6h4M2 18h20M2 6h20"/></svg>
+                <span class="skill-name">PROBLEM-SOLVING</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Work Experience (Interactive Timeline - Internships) -->
+    <section id="experience" class="grid-container">
+        <h2 class="section-header">02. // CAREER TRAJECTORY (INTERNSHIPS)</h2>
+
+        <div class="timeline-wrapper">
+            <div class="timeline-line"></div>
+
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3 class="job-title">Internship: Cloud Backend / Data Integration</h3>
+                    <p class="company-dates">Techcadd, PUNJAB | Jun 2025 - Aug 2025</p>
+                    <ul class="job-details">
+                        <li>Integrated **Amazon S3** as backend storage for user data and transaction logs, focusing on scalable and durable storage solutions.</li>
+                        <li>Utilized **MongoDB** for managing structured user account data in a NoSQL format, enhancing data retrieval flexibility.</li>
+                        <li>Contributed to infrastructure design, demonstrating proficiency in cloud service architecture and data handling.</li>
+                    </ul>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3 class="job-title">Internship: Application & Automation Development</h3>
+                    <p class="company-dates">Techlive Solutions, PUNJAB | Jun 2024 - Jul 2024</p>
+                    <ul class="job-details">
+                        <li>Developed a functional **ATM Machine simulation application** using Java for robust backend logic.</li>
+                        <li>Wrote **Python** scripts for certain utilities and automation tasks within the simulation environment.</li>
+                        <li>Gained hands-on experience in full-stack application development and system logic implementation.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Education/Academic Experience could be added here if needed to fill space -->
+            <div class="timeline-item left">
+                 <div class="timeline-content">
+                    <h3 class="job-title">Academic Project: Emotion Detection System</h3>
+                    <p class="company-dates">Self-Driven Project | Jul 2025</p>
+                    <ul class="job-details">
+                        <li>Developed a desktop application using **Java** that detects and classifies human emotions based on facial expressions.</li>
+                        <li>Applied **computer vision libraries** to process real-time video input for analysis.</li>
+                        <li>Demonstrated competency in developing intelligent systems using core programming languages.</li>
+                    </ul>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Impact & Achievements (Data-Driven Highlights) -->
+    <section id="achievements" class="grid-container">
+        <h2 class="section-header">03. // KEY ACHIEVEMENTS & METRICS</h2>
+
+        <div class="achievements-grid">
+            <div class="metric-card">
+                <h2>9.0/10</h2>
+                <p>Latest **SGPA** Achieved. Consistent academic excellence in Bachelor of Technology, Computer Science and Engineering.</p>
+            </div>
+            <div class="metric-card">
+                <h2>AWS S3 & MONGO</h2>
+                <p>**Cloud Integration** for User Data. Successfully leveraged scalable cloud services for an internship project's backend.</p>
+            </div>
+            <div class="metric-card">
+                <h2>98.67%</h2>
+                <p>**Secondary Examination Score**. Awarded a scholarship for exceptional academic performance in foundational subjects.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Education & Certifications -->
+    <section id="education-certs" class="grid-container">
+        <h2 class="section-header">04. // EDUCATION & CERTIFICATIONS</h2>
+
+        <div class="education-column">
+            <h3 class="section-subtitle">Academic Path</h3>
+            <div class="edu-item">
+                <h3>BACHELOR OF TECHNOLOGY (PURSING)</h3>
+                <p>Computer Science and Engineering | GNA University, Phagwara, Punjab</p>
+                <p class="company-dates">Aug 2022 - Jul 2026</p>
+            </div>
+            <div class="edu-item">
+                <h3>SENIOR SECONDARY EXAMINATION, PSEB</h3>
+                <p>Govt. Senior Secondary School, Baghpur Sataur, Punjab</p>
+                <p class="company-dates">Apr 2021 - Mar 2022 | Achieved 91.6%</p>
+            </div>
+        </div>
+
+        <div class="certs-column">
+            <h3 class="section-subtitle">Core Certifications</h3>
+            <ul class="cert-list">
+                <li>
+                    <svg class="cert-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 17l-5-5 5-5 5 5-5 5zM12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg>
+                    AWS: Amazon Web Services (May 2024)
+                </li>
+                <li>
+                    <svg class="cert-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l-5 5 5 5 5-5-5-5zM12 14v8M10 19h4"/></svg>
+                    DEVOPS Certification (Oct 2024)
+                </li>
+                <li>
+                    <svg class="cert-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20v-6h4v6M12 2l-8 8v12h16V10l-8-8z"/></svg>
+                    ROBOTICS Certification - Science Kapurthala (Apr 2023)
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Section 6: Contact & Call to Action -->
+    <section id="contact" class="grid-container">
+        <h2 class="section-header">05. // GET IN TOUCH</h2>
+        <div class="contact-content">
+            <h2>Ready to secure your cloud infrastructure or automate your stack?</h2>
+            <p>I am actively seeking challenging roles in Cloud Administration, DevOps, and Backend Engineering.</p>
+
+            <div class="contact-links">
+                <a href="mailto:dadwalshubham096@gmail.com" class="contact-link-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM20 6l-8 5-8-5"/></svg>
+                </a>
+                <a href="tel:+918847084945" class="contact-link-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 15.5C18.49 15.5 16.99 15.2 15.57 14.5c-.32-.15-.69-.17-1.01-.06l-2.07.72c-.89.31-1.83.47-2.8.47-2.73 0-5.18-.7-7.25-2.85C3.38 10.3 3.09 7.8 4.25 5.5c.3-.5.04-1.13-.52-1.42l-2.07-.72c-.32-.15-.69-.17-1.01-.06C-.01 2.9.23 2.1 1 2.1c2.6 0 5.1.8 7.2 2.3 2.1 1.5 3.8 3.5 4.9 5.8 1.1 2.3 1.5 4.8 1.5 7.4 0 .7-.4 1.2-1 1.2z"/></svg>
+                </a>
+                <a href="#" class="contact-link-item" onclick="event.preventDefault(); window.location.href='mailto:dadwalshubham096@gmail.com?subject=Inquiry%20from%20Portfolio%20Website&body=Hello%20Shubham,';">
+                    <svg class="contact-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 8v-1.5c0-1.38-1.12-2.5-2.5-2.5h-3C9.12 4 8 5.12 8 6.5V8c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 0V6.5c0-.28.22-.5.5-.5h3c.28 0 .5.22.5.5V8h-4z"/></svg>
+                </a>
+            </div>
+
+            <a href="mailto:dadwalshubham096@gmail.com?subject=Collaboration%20Opportunity&body=Hello%20Shubham," class="cta-button large-button">Say Hello</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>SHUBHAM DADWAL // ENGINEERED 2025</p>
+    </footer>
+
+    <script>
+        document.getElementById('hero-img').src = PHOTO_URL;
+
+        // --- Typing Animation Script ---
+        const typingElement = document.getElementById('typing-text');
+        const phrases = [
+            "Cloud Infrastructure Specialist.",
+            "DevOps & Automation Enthusiast.",
+            "Future-Ready Engineer.",
+            "Backend Development Focus."
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = 80;
+
+            if (isDeleting) {
+                typeSpeed /= 2; // Delete faster
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typeSpeed = 2000; // Pause at end of phrase
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500; // Pause before typing next phrase
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        // Start the typing animation on load
+        window.addEventListener('load', () => {
+             setTimeout(type, 1000); // Start after a short delay
+        });
+
+        // --- Scroll Animation Script (Intersection Observer) ---
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger when 20% of item is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    // General Fade/Slide In for elements
+                    if (target.classList.contains('profile-text')) {
+                        target.classList.add('in-view');
+                    }
+
+                    // Timeline Items
+                    if (target.classList.contains('timeline-item')) {
+                        if (target.classList.contains('left')) {
+                            target.classList.add('in-view-left');
+                        } else if (target.classList.contains('right')) {
+                            target.classList.add('in-view-right');
+                        }
+                    }
+
+                    // Timeline Line Drawing (optional visual flourish)
+                    if (target.id === 'experience') {
+                         document.querySelector('.timeline-line').style.setProperty('--timeline-progress', '100%');
+                    }
+
+                    // Stop observing once animation is triggered
+                    observer.unobserve(target);
+                }
+            });
+        }, observerOptions);
+
+        // Target elements for observation
+        document.querySelectorAll('.profile-text').forEach(el => observer.observe(el));
+        document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
+        observer.observe(document.getElementById('experience'));
+
+    </script>
+</body>
+</html>
